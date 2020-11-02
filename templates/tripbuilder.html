@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Trip Builder
+{% endblock %}
+
+{% block main %}
+<div class="card text-center">
+  <div class="card-body">
+    <h5 class="card-title"> Hey, {{ user[0]["username"] }}</h5>
+    <h5 class="card-title"> Let's Build a New Dream Trip </h5>
+    <p class="card-text"> Add new locations using the drop downs </p>
+    <form action="/trip_builder" method="post"></form>
+      <select id = "currency" name = >
+        <option value="initial" selected>Please Select a Currency</option>
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="GBP">GBP</option>
+              <option value="ILS">ILS</option>
+      </select>
+      <button onclick="getExchangeRates()">Get Exchange Rates </button>
+    </form>
+  </div>
+</div> <br>
+
+<div>
+  <button onclick="addCountries()">Add Additional Countries</button> <br>
+</div> <br>
+
+<div id= "country_pick">
+  <form id = "countries_form" name = "countries_form" action = "/trip_builder" method = "POST">
+    <input class="form-control" type="text" placeholder="Trip Name" id = "trip_name" name = "trip_name">  <button type="submit" id = "save" disabled = true>Save Trip</button>
+    	<ol id = "country_list"> <br>
+    	  <li id = "list_item_0">
+      	  <select id="nameList_0" name= 'nameList_0'>
+                      {% for country in countries %}
+                     <option name = "{{country.country}}"id="{{country.country}}" value = "{{country.country}}">{{country.country}} : {{country.currency_code}} </option>
+                      {% endfor %}
+      	  </select>
+      	  <a id = "currency_0" class = "currency_rate"> Choose Currency above for Exchange Rate </a>
+      	  <br>
+      	  <a class = "link" id = "countryLevel_0" href="#"> Build itinerary for this country </a>
+      	</li>
+      </ol>
+  </form>
+</div>
+<div>
+  <p>Thank you to <a href= "https://exchangeratesapi.io/"> https://exchangeratesapi.io/</a> and Madis Vain for the first API I ever queryed :-) </p>
+</div>
+<script src="/static/tripbuilder.js"></script>
+
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Plan Your Country Trip
+{% endblock %}
+
+{% block main %}
+<div class="container-lg">
+  <h2 id = "{{country}}">{{trip_name}} <br> {{country}}</h2>
+</div>
+<div>
+<iframe
+  class = "map"
+  align = "left"
+  width="800"
+  height="600"
+  frameborder="0" style="border:2"
+  src="https://www.google.com/maps/embed/v1/search?key=AIzaSyACKUpLQm6IMGrIV0uFRzpdR2hiNQqdoHk
+  &q={{country_location[0].latitude}},{{country_location[0].longitude}}&zoom=6" allowfullscreen>
+</iframe>
+
+</div>
+
+
+{% endblock %}

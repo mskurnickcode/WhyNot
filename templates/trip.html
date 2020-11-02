@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{trip_name}}
+{% endblock %}
+
+{% block main %}
+
+<div class="card text-center">
+  <div class="card-body">
+    <h5 class="card-title"> {{ trip_name }} </h5>
+  </div>
+</div>
+
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Country</th>
+    </tr>
+  </thead>
+  <tbody>
+        {% for i in countries %}
+    <tr>
+      <td> <a href = "/{{trip_name}}/{{i.country}} "> {{ i.country }} </a></td>
+    </tr>
+        {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

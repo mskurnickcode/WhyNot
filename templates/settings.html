@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Settings
+{% endblock %}
+
+{% block main %}
+    <form id = "update" action = "#" method = "post">
+        <div class="form-group" scope = "row">
+            <div>
+                Hello: {{ username[0]['username'] }} <br>
+                <input class="form-control" id = "new_username" name="new_username" placeholder="New Username">
+                <button id = "submit_button" class="btn btn-primary" type = "submit"> Change Username </button>
+            </div>
+        </div>
+    </form>
+    <form action="/change_password" method="post">
+        <div class="form-group">
+            <h5> Change Password </h5>
+                <input class="form-control" id = "current" name="current" placeholder="Current Password" type="password">
+            <div>
+                <input class="form-control" id = "new_password1" name="new_password1" placeholder="New Password" type="password">
+            </div>
+            <div>
+                <input class="form-control" id = "new_password2" name="new_password2" placeholder="Re-enter New Password" type="password" onkeyup="manage(this)" >
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" id ="submit">Change Password</button>
+    </form>
+    <script src="/static/settings.js"></script>
+{% endblock %}

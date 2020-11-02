@@ -1,0 +1,28 @@
+CREATE TABLE IF NOT EXISTS 'users' ('user_id' INTEGER PRIMARY KEY, 'username' TEXT NOT NULL, 'email' TEXT NOT NULL, 'password_hash' TEXT NOT NULL, 'date_time' INTEGER NOT NULL);
+
+User Trips
+CREATE TABLE IF NOT EXISTS 'trips' ('trip_id' INTEGER PRIMARY KEY, 'user_id' INTEGER NOT NULL, 'trip_name' TEXT NOT NULL, 'date_time' INTEGER NOT NULL);
+
+
+id	ident	type	name	latitude_deg	longitude_deg	elevation_ft	continent	iso_country	iso_region	municipality	scheduled_service	gps_code	iata_code	local_code	home_link	wikipedia_link	keywords
+CREATE TABLE IF NOT EXISTS 'airports' (‘airport_id’ INTEGER PRIMARY KEY, ‘airport_name’ TEXT NOT NULL, ‘airport_type’ VARCHAR(255), ‘latitude’ REAL, ‘longitude’ REAL, ‘continent’  VARCHAR(255), ‘iso_country’  VARCHAR(255), ‘iso_region’  VARCHAR(255), ‘iata_code’  VARCHAR(255));
+
+
+redo the below without the '' in them then let upload since it takes awhile
+db.execute("CREATE TABLE airports (airport_name TEXT, airport_type TEXT, latitude REAL, longitude REAL, continent TEXT, municipality TEXT, iso_country TEXT, iso_region TEXT, iata_code TEXT)")
+db.execute("INSERT INTO 'airports'('airport_name', 'airport_type', 'latitude', 'longitude', 'continent', 'municipality', 'iso_country', 'iso_region', 'iata_code') VALUES(:airport_name, :airport_type, :latitude, :longitude, :continent, :municipality, :iso_country, :iso_region, :iata_code)",
+                airport_name = airport_name, airport_type = airport_type, latitude = latitude, longitude = longitude, continent = continent, municipality = municipality, iso_country = iso_country, iso_region = iso_region, iata_code = iata_code)
+
+CREATE TABLE trip_countries (user_ID INTEGER, trip_name TEXT, country TEXT)
+
+Build Trip Form and Table for it (see in application)
+2. error handling for countries that have ( or ' in the name
+3. Each country is clickable link to notes/build itenerary for the country.
+2. Build Main Page with map? put current currency exchange for each country
+    use lat and longitude to map the trip on a "map my trip"page
+3. Build responsive form for travel itenerary with create option first and then edit option
+4. Build API call for getting cheapest flight options for one flight and then all flights
+5. Build a currency API call for seeing the exchange rate for each place.
+4. Page of ideas for earning money while you travel
+
+

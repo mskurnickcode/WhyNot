@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+
+<div class="card text-center">
+  <div class="card-body">
+    <h5 class="card-title"> Hello {{ user[0]["username"] }} </h5>
+    <p class="card-text">Below are your planned trips.  By clicking on each one you can enter to edit them or see the current pricing. </p>
+    <a href="/trip_builder" class="btn btn-primary">Make a New Trip</a>
+  </div>
+</div>
+
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Trip Name</th>
+      <th scope="col">Delete this Trip</th>
+    </tr>
+  </thead>
+  <tbody>
+        {% for i in trips %}
+    <tr>
+      <td> <a href = "/trip/{{i.trip_name}} "> {{ i.trip_name }} </a></td>
+      <td> <a href = "/delete/{{i.trip_name}}"> Delete <a> </a></td>
+    </tr>
+        {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
